@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinBloom - Natural Skincare</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #F9F9FC;
+            color: #383838;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #383838;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #383838;
+            font-weight: 500;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .header-icons a {
+            color: #383838;
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #E77373;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #D4C5FF;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #383838;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #383838;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #383838;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: #697586;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .features-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 20px;
+        }
+        
+        .feature-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-box img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-box h3 {
+            margin-bottom: 15px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 250px;
+            background-color: #F9F9FC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-img img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #E77373;
+            margin-bottom: 15px;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: #383838;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #697586;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            height: 400px;
+            background-color: #F9F9FC;
+            border-radius: 10px;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            background-color: #D4C5FF;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: #383838;
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #383838;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #8498AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #8498AF;
+            color: #8498AF;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close-modal {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .cart-items {
+            margin: 20px 0;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #F9F9FC;
+        }
+        
+        .cart-item-info {
+            flex: 2;
+        }
+        
+        .cart-item-quantity {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cart-item-price {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .quantity-btn {
+            background-color: #F9F9FC;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        /* Checkout Form */
+        .checkout-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #F9F9FC;
+            border-radius: 5px;
+        }
+        
+        /* Order Confirmation */
+        .order-confirmation {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .order-confirmation h2 {
+            margin-bottom: 20px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .cart-item-quantity {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo">SkinBloom</a>
+                <div class="nav-links">
+                    <a href="#">SHOP ALL</a>
+                    <a href="#">BESTSELLERS</a>
+                    <a href="#">COLLECTION</a>
+                    <a href="#">ABOUT US</a>
+                    <a href="#">BLOG</a>
+                </div>
+                <div class="header-icons">
+                    <a href="#">Search</a>
+                    <a href="#">Account</a>
+                    <a href="#" id="cart-icon">Cart <span class="cart-count">0</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Reveal your skin's natural glow</h1>
+            <p>Nourishing body and face creams with lotus extract provide deep hydration and rejuvenation. Suitable for all skin types. Vegan, cruelty-free, eco-friendly.</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">WHAT MAKES IT GOOD</h2>
+            <div class="features-container">
+                <div class="feature-box">
+                    <img src="https://via.placeholder.com/60" alt="Vegan">
+                    <h3>Vegan & Cruelty-Free</h3>
+                    <p>All our products are 100% vegan and never tested on animals.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="https://via.placeholder.com/60" alt="Eco-Friendly">
+                    <h3>Eco-Friendly Packaging</h3>
+                    <p>We use sustainable materials to protect our planet.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="https://via.placeholder.com/60" alt="Texture">
+                    <h3>Fast-Absorbing Texture</h3>
+                    <p>Lightweight formulas that absorb quickly without greasiness.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="https://via.placeholder.com/60" alt="Nourishment">
+                    <h3>24-Hour Nourishment</h3>
+                    <p>Long-lasting hydration for all skin types.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">NEW ARRIVALS</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About SkinBloom</h2>
+                    <p>Discover nature's beauty with our natural care products. SkinBloom is committed to creating high-quality skincare that's vegan, cruelty-free, and environmentally friendly.</p>
+                    <p>Our products are formulated with carefully selected ingredients to provide effective results while being gentle on your skin and the planet.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <!-- This would be an image in a real implementation -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>SIGN UP FOR EMAILS</h2>
+            <p>Stay glowing! Subscribe now for the latest trends, tips, and discounts on your favorite cosmetics.</p>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>HELP</h3>
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>MY ACCOUNT</h3>
+                    <ul>
+                        <li><a href="#">Addresses</a></li>
+                        <li><a href="#">Order Status</a></li>
+                        <li><a href="#">Wishlist</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CUSTOMER CARE</h3>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>CONTACT</h3>
+                    <p>+63 9361874723</p>
+                    <p>skinbloom.official@gmail.com</p>
+                    <p>Manila, Philippines</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 SkinBloom. Privacy Policy • Terms And Conditions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">₱0.00</span>
+            </div>
+            <button class="btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Checkout</h2>
+            <form class="checkout-form" id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="zip">Postal Code</label>
+                    <input type="text" id="zip" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment">Payment Method</label>
+                    <select id="payment" required>
+                        <option value="">Select payment method</option>
+                        <option value="credit">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="gcash">GCash</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <div class="order-confirmation">
+                <h2>Thanks for your order!</h2>
+                <p>Your order no. <span id="order-number">167749-0500</span> has been successfully paid and submitted for processing.</p>
+                <p>Monitor the status in your account.</p>
+                <button class="btn" id="return-home">Return to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mock product data (in a real app, this would come from a backend API)
+        const products = [
+            {
+                id: 1,
+                name: "Dewy Glow Jelly Cream",
+                description: "With Jeju Cherry Blossom",
+                price: 200.00,
+                image: "https://via.placeholder.com/200"
+            },
+            {
+                id: 2,
+                name: "Safe Block Sun Milk",
+                description: "SPF50+/PA+++",
+                price: 200.00,
+                image: "https://via.placeholder.com/200"
+            },
+            {
+                id: 3,
+                name: "Super Aqua Snail Cream",
+                description: "Skin Reinforcement Gel Type Cream",
+                price: 200.00,
+                image: "https://via.placeholder.com/200"
+            },
+            {
+                id: 4,
+                name: "Clarifying Emulsion",
+                description: "with Bija Seed Oil",
+                price: 198.00,
+                image: "https://via.placeholder.com/200"
+            }
+        ];
+
+        // Cart state
+        let cart = [];
+        
+        // DOM elements
+        const productsGrid = document.getElementById('products-grid');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartCount = document.querySelector('.cart-count');
+        const cartModal = document.getElementById('cart-modal');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const checkoutModal = document.getElementById('checkout-modal');
+        const checkoutForm = document.getElementById('checkout-form');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const returnHomeBtn = document.getElementById('return-home');
+        const closeModals = document.querySelectorAll('.close-modal');
+        const newsletterForm = document.getElementById('newsletter-form');
+
+        // Initialize the app
+        function init() {
+            renderProducts();
+            setupEventListeners();
+            loadCart();
+        }
+
+        // Render products to the page
+        function renderProducts() {
+            productsGrid.innerHTML = '';
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p>${product.description}</p>
+                        <p class="product-price">₱${product.price.toFixed(2)}</p>
+                        <button class="add-to-cart" data-id="${product.id}">Add To Bag</button>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Cart icon click
+            cartIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCartModal();
+            });
+
+            // Add to cart buttons
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const productId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(productId);
+                }
+            });
+
+            // Quantity buttons in cart
+            cartItems.addEventListener('click', (e) => {
+                if (e.target.classList.contains('quantity-btn')) {
+                    const itemId = parseInt(e.target.closest('.cart-item').getAttribute('data-id'));
+                    const isIncrease = e.target.textContent === '+';
+                    updateQuantity(itemId, isIncrease);
+                }
+            });
+
+            // Checkout button
+            checkoutBtn.addEventListener('click', () => {
+                cartModal.style.display = 'none';
+                checkoutModal.style.display = 'block';
+            });
+
+            // Checkout form submission
+            checkoutForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                processOrder();
+            });
+
+            // Return home button
+            returnHomeBtn.addEventListener('click', () => {
+                confirmationModal.style.display = 'none';
+                // In a real app, you might redirect to home page
+            });
+
+            // Close modal buttons
+            closeModals.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    cartModal.style.display = 'none';
+                    checkoutModal.style.display = 'none';
+                    confirmationModal.style.display = 'none';
+                });
+            });
+
+            // Newsletter form
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = e.target.querySelector('input').value;
+                subscribeToNewsletter(email);
+                e.target.reset();
+            });
+
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === cartModal) {
+                    cartModal.style.display = 'none';
+                }
+                if (e.target === checkoutModal) {
+                    checkoutModal.style.display = 'none';
+                }
+                if (e.target === confirmationModal) {
+                    confirmationModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Cart functions
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1
+                });
+            }
+            
+            saveCart();
+            updateCartCount();
+            showAddedToCartMessage(product.name);
+        }
+
+        function updateQuantity(productId, isIncrease) {
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            
+            if (itemIndex !== -1) {
+                if (isIncrease) {
+                    cart[itemIndex].quantity += 1;
+                } else {
+                    if (cart[itemIndex].quantity > 1) {
+                        cart[itemIndex].quantity -= 1;
+                    } else {
+                        cart.splice(itemIndex, 1);
+                    }
+                }
+                
+                saveCart();
+                updateCartCount();
+                renderCartItems();
+            }
+        }
+
+        function openCartModal() {
+            renderCartItems();
+            cartModal.style.display = 'block';
+        }
+
+        function renderCartItems() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty</p>';
+                cartTotal.textContent = '₱0.00';
+                checkoutBtn.disabled = true;
+                return;
+            }
+            
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.setAttribute('data-id', item.id);
+                cartItem.innerHTML = `
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <p>₱${item.price.toFixed(2)}</p>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="quantity-btn">+</button>
+                    </div>
+                    <div class="cart-item-price">
+                        ₱${itemTotal.toFixed(2)}
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            cartTotal.textContent = `₱${total.toFixed(2)}`;
+            checkoutBtn.disabled = false;
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = count;
+        }
+
+        function showAddedToCartMessage(productName) {
+            // In a real app, you might show a toast notification
+            alert(`${productName} has been added to your cart!`);
+        }
+
+        // Order processing
+        function processOrder() {
+            // In a real app, this would send data to a backend API
+            const formData = new FormData(checkoutForm);
+            const orderData = {
+                customer: {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    address: formData.get('address'),
+                    city: formData.get('city'),
+                    zip: formData.get('zip')
+                },
+                payment: formData.get('payment'),
+                items: cart,
+                total: calculateTotal()
+            };
+            
+            // Simulate API call with timeout
+            setTimeout(() => {
+                // Generate a random order number
+                const orderNumber = Math.floor(100000 + Math.random() * 900000) + '-' + 
+                                    Math.floor(1000 + Math.random() * 9000);
+                document.getElementById('order-number').textContent = orderNumber;
+                
+                // Clear cart
+                cart = [];
+                saveCart();
+                updateCartCount();
+                
+                // Show confirmation
+                checkoutModal.style.display = 'none';
+                confirmationModal.style.display = 'block';
+            }, 1000);
+        }
+
+        function calculateTotal() {
+            return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        }
+
+        // Newsletter subscription
+        function subscribeToNewsletter(email) {
+            // In a real app, this would send data to a backend API
+            console.log(`Subscribed email: ${email}`);
+            alert('Thank you for subscribing to our newsletter!');
+        }
+
+        // Local storage functions
+        function saveCart() {
+            localStorage.setItem('skinbloom_cart', JSON.stringify(cart));
+        }
+
+        function loadCart() {
+            const savedCart = localStorage.getItem('skinbloom_cart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCartCount();
+            }
+        }
+
+        // Initialize the app
+        init();
+    </script>
+</body>
+</html>
